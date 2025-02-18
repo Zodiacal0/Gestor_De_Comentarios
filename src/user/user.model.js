@@ -34,6 +34,11 @@ const userSchema = Schema({
         maxLength: 8,
         required: true,
     },
+    publications:[{
+        type: Schema.Types.ObjectId,
+        ref: "Publication",
+        default: []
+    }],
     role: {
         type: String,
         required: true,

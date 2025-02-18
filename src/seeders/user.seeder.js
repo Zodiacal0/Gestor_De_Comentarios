@@ -1,9 +1,12 @@
 import User from '../user/user.model.js';
+import { hash } from 'argon2';
 
 export const userSeeder = async() =>{
     try{
 
         const user = await User.findOne({role: "ADMIN_ROLE"});
+
+        const encriptedPassword = await hash("Admin123@");
 
         if(!user){
             await User.create({
@@ -11,7 +14,7 @@ export const userSeeder = async() =>{
                 surname: "Admin",
                 userName: "admin",
                 email: "adminexample@gmail.com",
-                password: "Admin123@",
+                password: encriptedPassword,
                 phone: "12345678",
                 role: "ADMIN_ROLE"
             })
