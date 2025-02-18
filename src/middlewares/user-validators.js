@@ -37,14 +37,14 @@ export const getUserByIdValidator = [
     param("uid").custom(uidExist),
     validationsFields,
     catchErrors
-]
+];
 
 export const deleteUserValidator = [
     validateJWT,
     param("uid").isMongoId().withMessage("No es un ID válido de MongoDB").custom(uidExist),
     validationsFields,
     catchErrors
-]
+];
 
 export const updatePasswordValidator = [
     validateJWT,
@@ -58,14 +58,14 @@ export const updatePasswordValidator = [
     }).withMessage("El password debe contener al menos 8 caracteres"),
     validationsFields,
     catchErrors
-]
+];
 
 export const updateUserValidator = [
     validateJWT,
     param("uid", "No es un ID válido").isMongoId().custom(uidExist),
     validationsFields,
     catchErrors
-]
+];
 
 export const UpdateProfileValidator =[
     validateJWT,
