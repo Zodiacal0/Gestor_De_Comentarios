@@ -39,6 +39,11 @@ const userSchema = Schema({
         ref: "Publication",
         default: []
     }],
+    comments:[{
+        type: Schema.Types.ObjectId,
+        ref: "Comment",
+        default: []
+    }],
     role: {
         type: String,
         required: true,

@@ -8,6 +8,7 @@ import { connectionDB } from "./mongo.js";
 import authRoutes from "../src/Auth/auth.routes.js"
 import userRoutes from "../src/user/user.routes.js"
 import publicationRoutes from "../src/publication/publication.routes.js";
+import commentRoutes from  "../src/comment/comment.routes.js";
 import { userSeeder } from "../src/seeders/user.seeder.js";
 
 const middlewares = (app) => {
@@ -23,6 +24,7 @@ const routes = (app) =>{
     app.use("/commentManager/v1/auth", authRoutes);
     app.use("/commentManager/v1/user", userRoutes);
     app.use("/commentManager/v1/publication", publicationRoutes);
+    app.use("/commentManager/v1/comment", commentRoutes);
 }
 const connectionMongo = async() =>{
     try{
