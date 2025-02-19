@@ -63,51 +63,79 @@ export const getUserComments = async (req, res) => {
 
 export const deleteComment = async (req, res) => {
     try {
-
         const { uid } = req.params;
-        const comment = await Comment.findById(uid);
-        const userId = comment.author;
-        const publication = comment.publication;
+        const { uidAuthor } = req.body;
 
+        const comment = await Comment.findById(uid);
         if (!comment) {
             return res.status(404).json({
-                message: "Comment not found" 
+                success: false,
+                message: "Comment not found"
             });
         }
 
-        await Comment.findByIdAndUpdate(uid, { status: false }, { new: true });
-        await Publication.findByIdAndUpdate(publication, { $pull: { comments: uid } }, { new: true });
-        await User.findByIdAndUpdate(userId,{$pull: {comments: uid}}, {new: true})
+        if (uidAuthor !== comment.author.toString()) {
+            return res.status(401).json({
+                success: false,
+                message: "You are not authorized to delete this comment"
+            });
+        }
+
+        await Comment.findByIdAndUpdate(uid, { status: false });
+
+        await Publication.findByIdAndUpdate(comment.publication, { $pull: { comments: uid } });
+        await User.findByIdAndUpdate(comment.author, { $pull: { comments: uid } });
 
         return res.status(200).json({ 
+            success: true,
             message: "Comment deleted successfully" 
         });
 
     } catch (error) {
+        console.error("Error deleting comment:", error);
         return res.status(500).json({
-            message: "Comment publication failed",
+            success: false,
+            message: "Error deleting comment",
             error: error.message
         });
     }
 };
 
+
 export const updateComment = async (req, res) => {
     try {
         const { uid } = req.params;
-        const  {content}  = req.body;
+        const { content, uidAuthor } = req.body;
 
-        const comment = await Comment.findByIdAndUpdate(uid,{content: content},{ new: true });
+        const comment = await Comment.findById(uid);
+        if (!comment) {
+            return res.status(404).json({
+                success: false,
+                message: "Comment not found"
+            });
+        }
 
-        res.status(200).json({
+        if (uidAuthor !== comment.author.toString()) {
+            return res.status(401).json({
+                success: false,
+                message: "You are not authorized to update this comment"
+            });
+        }
+
+        const updatedComment = await Comment.findByIdAndUpdate(uid, { content }, { new: true });
+
+        return res.status(200).json({
             success: true,
-            msg: "Comentario Actualizado",
-            comment,
+            message: "Comment updated successfully",
+            comment: updatedComment,
         });
+
     } catch (err) {
-        res.status(500).json({
+        console.error("Error updating comment:", err);
+        return res.status(500).json({
             success: false,
-            msg: "Error al actualizar el comentario",
+            message: "Error updating comment",
             error: err.message
         });
     }
-}
+};
