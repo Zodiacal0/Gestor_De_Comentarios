@@ -111,13 +111,13 @@ export const updatePublication = async (req, res) => {
 
         res.status(200).json({
             success: true,
-            msg: 'Publicación Actualizada',
+            msg: "Publicación Actualizada",
             publication,
         });
     } catch (err) {
         res.status(500).json({
             success: false,
-            msg: 'Error al actualizar publicación',
+            msg: "Error al actualizar publicación",
             error: err.message
         });
     }

@@ -1,5 +1,6 @@
 import User from "../user/user.model.js";
 import Publication from "../publication/publication.model.js";
+import Comment from "../comment/comment.model.js";
 
 export const emailExist = async(email = "") =>{
     const exist = await User.findOne({email});
@@ -31,4 +32,9 @@ export const uidPublicationExist = async(uid = "") =>{
     }
 };
 
-
+export const uidCommentExist = async(uid = "") =>{
+    const exist = await Comment.findById(uid);
+    if(!exist){
+        throw new Error("No exixte el ID proporcionado");
+    }
+};
