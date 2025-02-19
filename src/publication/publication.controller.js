@@ -76,49 +76,77 @@ export const getPublication = async (req, res) => {
 
 export const deletePublication = async (req, res) => {
     try {
-
         const { uid } = req.params;
-        const publication = await Publication.findById(uid);
-        const userId = publication.owner;
+        const { uidOwner } = req.body; 
 
+        const publication = await Publication.findById(uid);
         if (!publication) {
             return res.status(404).json({
-                message: "Category not found" 
+                success: false,
+                message: "Publication not found" 
             });
         }
 
-        await Publication.findByIdAndUpdate(uid, { status: false }, { new: true });
-        await User.findByIdAndUpdate(userId, { $pull: { publications: uid } }, { new: true });
+        if (uidOwner !== publication.owner.toString()) {
+            return res.status(401).json({
+                success: false,
+                message: "You are not authorized to delete this publication"
+            });
+        }
+
+        await Publication.findByIdAndUpdate(uid, { status: false });
+        await User.findByIdAndUpdate(publication.owner, { $pull: { publications: uid } });
 
         return res.status(200).json({ 
+            success: true,
             message: "Publication deleted successfully" 
         });
 
     } catch (error) {
+        console.error("Error deleting publication:", error);
         return res.status(500).json({
+            success: false,
             message: "Delete publication failed",
             error: error.message
         });
     }
 };
 
+
 export const updatePublication = async (req, res) => {
     try {
         const { uid } = req.params;
-        const  {title, category, publicationContent}  = req.body;
+        const { uidOwner, title, category, publicationContent } = req.body;
 
-        const publication = await Publication.findByIdAndUpdate(uid, {title: title, category: category, publicationContent: publicationContent}, { new: true });
+        const publication = await Publication.findById(uid);
+        if (!publication) {
+            return res.status(404).json({
+                success: false,
+                message: "Publication not found"
+            });
+        }
 
-        res.status(200).json({
+        if (uidOwner !== publication.owner.toString()) {
+            return res.status(401).json({
+                success: false,
+                message: "You are not authorized to update this publication"
+            });
+        }
+
+        const updatedPublication = await Publication.findByIdAndUpdate(uid,{ title, category, publicationContent },{ new: true });
+
+        return res.status(200).json({
             success: true,
-            msg: "Publicación Actualizada",
-            publication,
+            message: "Publication updated successfully",
+            publication: updatedPublication,
         });
+
     } catch (err) {
-        res.status(500).json({
+        console.error("Error updating publication:", err);
+        return res.status(500).json({
             success: false,
-            msg: "Error al actualizar publicación",
+            message: "Error updating publication",
             error: err.message
         });
     }
-}
+};

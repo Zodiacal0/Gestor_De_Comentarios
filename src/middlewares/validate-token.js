@@ -40,7 +40,7 @@ export const validateJWT = async (req, res, next) => {
         return res.status(500).json({
             success: false,
             message : "Error at validate token",
-            error: err.message
+            error: error.message
         })
     }
 
