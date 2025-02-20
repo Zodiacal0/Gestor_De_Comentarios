@@ -23,7 +23,8 @@ const options = {
         "./src/user/user.routes.js",
         "./src/publication/publication.routes.js",
         "./src/comment/comment.routes.js",
-        "./src/auth/auth.routes.js"
+        "./src/auth/auth.routes.js",
+        "./src/category/category.routes.js"
     ]
 };
 
