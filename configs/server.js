@@ -10,6 +10,7 @@ import userRoutes from "../src/user/user.routes.js"
 import publicationRoutes from "../src/publication/publication.routes.js";
 import commentRoutes from  "../src/comment/comment.routes.js";
 import { userSeeder } from "../src/seeders/user.seeder.js";
+import { swaggerDocs, swaggerUi } from "./swagger.js";
 
 const middlewares = (app) => {
     app.use(express.urlencoded({extended:false}));
@@ -25,6 +26,7 @@ const routes = (app) =>{
     app.use("/commentManager/v1/user", userRoutes);
     app.use("/commentManager/v1/publication", publicationRoutes);
     app.use("/commentManager/v1/comment", commentRoutes);
+    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 }
 const connectionMongo = async() =>{
     try{
