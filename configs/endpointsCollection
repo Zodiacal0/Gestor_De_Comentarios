@@ -86,7 +86,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userName\": \"Zodiacal0\",\r\n    \"password\": \"Dispositibo1@\"\r\n}",
+							"raw": "{\r\n    \"userName\": \"admin\",\r\n    \"password\": \"Admin123@\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -333,6 +333,158 @@
 			]
 		},
 		{
+			"name": "Categoria",
+			"item": [
+				{
+					"name": "Agregar Categoría",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3YWE0ZjI1YjI5MjQ2OTRhMGUyOWQiLCJpYXQiOjE3NDAwOTAxODksImV4cCI6MTc0MDA5Mzc4OX0.xOaMjpENhYNixEtQXffyZNoehD25oIOeXH8WfA4UsaM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Tecnología\",\r\n    \"description\": \"cosas de compu\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/commentManager/v1/category/registerCategory/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"commentManager",
+								"v1",
+								"category",
+								"registerCategory",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Categoría",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3YWE0ZjI1YjI5MjQ2OTRhMGUyOWQiLCJpYXQiOjE3NDAwOTAxODksImV4cCI6MTc0MDA5Mzc4OX0.xOaMjpENhYNixEtQXffyZNoehD25oIOeXH8WfA4UsaM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/commentManager/v1/category/deleteCategory/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"commentManager",
+								"v1",
+								"category",
+								"deleteCategory",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "67b7aafbc0f9fabd5ca9a0d8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Categoría",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3YWE0ZjI1YjI5MjQ2OTRhMGUyOWQiLCJpYXQiOjE3NDAwOTAxODksImV4cCI6MTc0MDA5Mzc4OX0.xOaMjpENhYNixEtQXffyZNoehD25oIOeXH8WfA4UsaM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"videos\",\r\n    \"description\": \"vedeos para ver\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/commentManager/v1/category/updateCategory/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"commentManager",
+								"v1",
+								"category",
+								"updateCategory",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "67b7aafbc0f9fabd5ca9a0d8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Publicaciones",
 			"item": [
 				{
@@ -343,7 +495,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I2Nzc3ZjZiYTIxNDNlNTlhZWEwNTUiLCJpYXQiOjE3NDAwMTEzOTUsImV4cCI6MTc0MDAxNDk5NX0.kouskZ4BOssBop68Z12DbAzBGi0ix1dt59KdBIU1vzo",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3YWE0ZjI1YjI5MjQ2OTRhMGUyOWQiLCJpYXQiOjE3NDAwOTAxODksImV4cCI6MTc0MDA5Mzc4OX0.xOaMjpENhYNixEtQXffyZNoehD25oIOeXH8WfA4UsaM",
 									"type": "string"
 								}
 							]
@@ -352,7 +504,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"El futuro de la inteligencia artificial\",\r\n    \"category\": \"TECHNOLOGY\",\r\n    \"publicationContent\": \"La inteligencia artificial está revolucionando la forma en que interactuamos con la tecnología.\",\r\n    \"owner\": \"67b677606ba2143e59aea051\"\r\n}\r\n",
+							"raw": "{\r\n    \"title\": \"El futuro de la inteligencia artificial\",\r\n    \"category\": \"67b7aafbc0f9fabd5ca9a0d8\",\r\n    \"publicationContent\": \"La inteligencia artificial está revolucionando la forma en que interactuamos con la tecnología.\",\r\n    \"owner\": \"67b7aa4f25b2924694a0e29d\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -375,6 +527,13 @@
 								"publication",
 								"registerPublication",
 								""
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -388,7 +547,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I2Nzc3ZjZiYTIxNDNlNTlhZWEwNTUiLCJpYXQiOjE3NDAwMTEzOTUsImV4cCI6MTc0MDAxNDk5NX0.kouskZ4BOssBop68Z12DbAzBGi0ix1dt59KdBIU1vzo",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3YWE0ZjI1YjI5MjQ2OTRhMGUyOWQiLCJpYXQiOjE3NDAwOTAxODksImV4cCI6MTc0MDA5Mzc4OX0.xOaMjpENhYNixEtQXffyZNoehD25oIOeXH8WfA4UsaM",
 									"type": "string"
 								}
 							]
@@ -415,7 +574,7 @@
 							"variable": [
 								{
 									"key": "uid",
-									"value": "67b677dd6ba2143e59aea065"
+									"value": "67b7ab72c0f9fabd5ca9a0e3"
 								}
 							]
 						}
@@ -430,7 +589,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I2Nzc3ZjZiYTIxNDNlNTlhZWEwNTUiLCJpYXQiOjE3NDAwMTEzOTUsImV4cCI6MTc0MDAxNDk5NX0.kouskZ4BOssBop68Z12DbAzBGi0ix1dt59KdBIU1vzo",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3YWE0ZjI1YjI5MjQ2OTRhMGUyOWQiLCJpYXQiOjE3NDAwOTAxODksImV4cCI6MTc0MDA5Mzc4OX0.xOaMjpENhYNixEtQXffyZNoehD25oIOeXH8WfA4UsaM",
 									"type": "string"
 								}
 							]
@@ -466,7 +625,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I1NDlhMmIwMjk1ZWNjM2M2M2FjN2YiLCJpYXQiOjE3NDAwMDYyMzksImV4cCI6MTc0MDAwOTgzOX0.ZIiZ_xIfM0gpNatwRmN6M5dy_5HfbOIfspjBg0SSwvM",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3YWE0ZjI1YjI5MjQ2OTRhMGUyOWQiLCJpYXQiOjE3NDAwOTAxODksImV4cCI6MTc0MDA5Mzc4OX0.xOaMjpENhYNixEtQXffyZNoehD25oIOeXH8WfA4UsaM",
 									"type": "string"
 								}
 							]
@@ -475,7 +634,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"test1\",\r\n    \"uidOwner\": \"67b549a2b0295ecc3c63ac7f\"\r\n}",
+							"raw": "{\r\n    \"title\": \"test1\",\r\n    \"category\": \"67b7aafbc0f9fabd5ca9a0d8\",\r\n    \"publicationContent\": \"dogeCoin es god\",\r\n    \"uidOwner\": \"67b7aa4f25b2924694a0e29d\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -502,7 +661,7 @@
 							"variable": [
 								{
 									"key": "uid",
-									"value": "67b549e9b0295ecc3c63ac88"
+									"value": "67b7ab72c0f9fabd5ca9a0e3"
 								}
 							]
 						}

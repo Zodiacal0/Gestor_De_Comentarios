@@ -38,3 +38,10 @@ export const uidCommentExist = async(uid = "") =>{
         throw new Error("No exixte el ID proporcionado");
     }
 };
+
+export const categoryExist = async(uid = "") =>{
+    const exist = await Category.findById(uid);
+    if(!exist){
+        throw new Error("No existe el ID proporcionado");
+    }
+}
