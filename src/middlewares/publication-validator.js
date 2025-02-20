@@ -8,7 +8,7 @@ import { uidExist , uidPublicationExist} from "../helpers/db-validators.js";
 export const registerPublicationValidator = [
     validateJWT,
     body("title").not().isEmpty().withMessage("El título es requerido"),
-    body("category").not().isEmpty().withMessage("La categoría es requerida").isIn(["TECHNOLOGY","MATHEMATICS", "SPORTS","SCIENCE","LIFESTYLE"]).withMessage("Invalid category"),
+    body("category").not().isEmpty().withMessage("La categoría es requerida").isMongoId().withMessage("No es un ID válido de MongoDB"),
     body("publicationContent").not().isEmpty().withMessage("Content is Required"),
     body("owner").isMongoId().withMessage("Invalid Id").custom(uidExist),
     validationsFields,

@@ -7,9 +7,9 @@ const publicationSchema = Schema({
         maxLength: [64, "Title cannot exceed 64 characteres"]
     },
     category:{
-        type: String,
+        type: Schema.Types.ObjectId,
         required: [true, "Category is required"],
-        enum: ["TECHNOLOGY","MATHEMATICS", "SPORTS","SCIENCE","LIFESTYLE"]
+        ref: "Category"
     },
     publicationContent: {
         type: String,
