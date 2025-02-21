@@ -1,4 +1,5 @@
 import Category from "../category/category.model.js"
+import Publication from "../publication/publication.model.js"
 
 export const registerCategory = async(req,res) => {
     try {
@@ -20,6 +21,7 @@ export const registerCategory = async(req,res) => {
 export const deleteCategory = async (req, res) => {
     try {
         const { uid } = req.params;
+
         const category = await Category.findById(uid);
 
         if (!category) {
@@ -30,8 +32,18 @@ export const deleteCategory = async (req, res) => {
 
         await Category.findByIdAndUpdate(uid, { status: false }, { new: true });
 
-        return res.status(200).json({ 
-            message: "Categoría deshabilitada"
+        const categoryDefault = await Category.findOne({ name: "Default" });
+
+        if (!categoryDefault) {
+            return res.status(404).json({
+                message: "Categoría por defecto no encontrada"
+            });
+        }
+
+        await Publication.updateMany({ category: uid },{ category: categoryDefault._id },{ new: true });
+
+        return res.status(200).json({
+            message: "Categoría deshabilitada y publicaciones actualizadas"
         });
 
     } catch (error) {
@@ -41,6 +53,8 @@ export const deleteCategory = async (req, res) => {
         });
     }
 };
+
+
 
 export const updateCategory = async(req,res) => {
     try {

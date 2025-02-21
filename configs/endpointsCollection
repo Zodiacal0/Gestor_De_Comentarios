@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "fdc1b328-a819-488f-a7ab-dcb053dbdd29",
+		"_postman_id": "5b430071-6f37-4e1a-8173-770a18b7af3c",
 		"name": "Gestor de Comentarios",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "38544176"
+		"_exporter_id": "37641996"
 	},
 	"item": [
 		{
@@ -343,7 +343,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3YWE0ZjI1YjI5MjQ2OTRhMGUyOWQiLCJpYXQiOjE3NDAwOTAxODksImV4cCI6MTc0MDA5Mzc4OX0.xOaMjpENhYNixEtQXffyZNoehD25oIOeXH8WfA4UsaM",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I4OGIxZDQwMzE0YzBjNjAxYWNkZTgiLCJpYXQiOjE3NDAxNDc2MzgsImV4cCI6MTc0MDE1MTIzOH0.OA7o1uTNLgzwt3I6tV6DiAraKwd4CMui7o-nfKlq4HY",
 									"type": "string"
 								}
 							]
@@ -388,7 +388,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3YWE0ZjI1YjI5MjQ2OTRhMGUyOWQiLCJpYXQiOjE3NDAwOTAxODksImV4cCI6MTc0MDA5Mzc4OX0.xOaMjpENhYNixEtQXffyZNoehD25oIOeXH8WfA4UsaM",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I4OGIxZDQwMzE0YzBjNjAxYWNkZTgiLCJpYXQiOjE3NDAxNDc2MzgsImV4cCI6MTc0MDE1MTIzOH0.OA7o1uTNLgzwt3I6tV6DiAraKwd4CMui7o-nfKlq4HY",
 									"type": "string"
 								}
 							]
@@ -424,7 +424,7 @@
 							"variable": [
 								{
 									"key": "uid",
-									"value": "67b7aafbc0f9fabd5ca9a0d8"
+									"value": "67b88bd2d4fcb452177ddfec"
 								}
 							]
 						}
@@ -495,7 +495,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I3YWE0ZjI1YjI5MjQ2OTRhMGUyOWQiLCJpYXQiOjE3NDAwOTAxODksImV4cCI6MTc0MDA5Mzc4OX0.xOaMjpENhYNixEtQXffyZNoehD25oIOeXH8WfA4UsaM",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I4OGIxZDQwMzE0YzBjNjAxYWNkZTgiLCJpYXQiOjE3NDAxNDc2MzgsImV4cCI6MTc0MDE1MTIzOH0.OA7o1uTNLgzwt3I6tV6DiAraKwd4CMui7o-nfKlq4HY",
 									"type": "string"
 								}
 							]
@@ -504,7 +504,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"El futuro de la inteligencia artificial\",\r\n    \"category\": \"67b7aafbc0f9fabd5ca9a0d8\",\r\n    \"publicationContent\": \"La inteligencia artificial está revolucionando la forma en que interactuamos con la tecnología.\",\r\n    \"owner\": \"67b7aa4f25b2924694a0e29d\"\r\n}\r\n",
+							"raw": "{\r\n    \"title\": \"El futuro de la inteligencia artificial\",\r\n    \"category\": \"67b88bd2d4fcb452177ddfec\",\r\n    \"publicationContent\": \"La inteligencia artificial está revolucionando la forma en que interactuamos con la tecnología.\",\r\n    \"owner\": \"67b88b1d40314c0c601acde8\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -676,13 +676,22 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I1NDlhMmIwMjk1ZWNjM2M2M2FjN2YiLCJpYXQiOjE3Mzk5MzQ1NjUsImV4cCI6MTczOTkzODE2NX0.tS8F-HhTFeGl-0Kp6wWxNVtlcz2Y_knGGuEBIFqonXY",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I4OGIxZDQwMzE0YzBjNjAxYWNkZTgiLCJpYXQiOjE3NDAxNDc2MzgsImV4cCI6MTc0MDE1MTIzOH0.OA7o1uTNLgzwt3I6tV6DiAraKwd4CMui7o-nfKlq4HY",
 									"type": "string"
 								}
 							]
 						},
 						"method": "PATCH",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"uidOwner\": \"67b88b1d40314c0c601acde8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://127.0.0.1:3005/commentManager/v1/publication/deletePublication/:uid",
 							"protocol": "http",
@@ -703,7 +712,7 @@
 							"variable": [
 								{
 									"key": "uid",
-									"value": "67b51858100c956fa0877c09"
+									"value": "67b88c25d4fcb452177ddff1"
 								}
 							]
 						}
